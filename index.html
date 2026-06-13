@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mau Mabar Dengan Didi Rani?</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#ff9ecf;
+    overflow:hidden;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.container{
+    text-align:center;
+    z-index:10;
+}
+
+h1{
+    color:white;
+    margin-bottom:25px;
+    text-shadow:2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.btn{
+    border:none;
+    padding:15px 35px;
+    font-size:20px;
+    border-radius:15px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+#mau{
+    background:#ff3f8e;
+    color:white;
+}
+
+#mau:hover{
+    transform:scale(1.08);
+}
+
+#ogah{
+    background:black;
+    color:white;
+    position:relative;
+}
+
+#linkArea{
+    margin-top:20px;
+    display:none;
+}
+
+#linkBtn{
+    display:inline-block;
+    text-decoration:none;
+    background:#ffc0e0;
+    color:#000;
+    padding:15px 25px;
+    border-radius:15px;
+    font-weight:bold;
+}
+
+.credit{
+    margin-top:20px;
+    color:white;
+    font-weight:bold;
+}
+
+.emoji{
+    position:absolute;
+    font-size:30px;
+    animation:fly linear infinite;
+    user-select:none;
+}
+
+@keyframes fly{
+    from{
+        transform:translateY(110vh) rotate(0deg);
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Mau Mabar Dengan Didi Rani? 🥰</h1>
+
+    <div>
+        <button id="mau" class="btn">🥰 Mau Banget</button>
+    </div>
+
+    <div>
+        <button id="ogah" class="btn">🗿 Ogah</button>
+    </div>
+
+    <div id="linkArea">
+        <a id="linkBtn"
+        href="https://www.roblox.com/share?code=12a4eb1f6b9de54b9eb6ad7471ac1eda&type=Server"
+        target="_blank">
+        💖 Join Server Roblox 💖
+        </a>
+    </div>
+
+    <div class="credit">
+        creat by m_didi
+    </div>
+</div>
+
+<script>
+// Tombol mau banget
+document.getElementById("mau").addEventListener("click", function(){
+    document.getElementById("linkArea").style.display = "block";
+});
+
+// Tombol ogah pindah kiri-kanan saat disentuh
+const ogah = document.getElementById("ogah");
+let kanan = true;
+
+function pindah(){
+    if(kanan){
+        ogah.style.transform = "translateX(180px)";
+    }else{
+        ogah.style.transform = "translateX(-180px)";
+    }
+    kanan = !kanan;
+}
+
+ogah.addEventListener("mouseover", pindah);
+ogah.addEventListener("touchstart", pindah);
+ogah.addEventListener("click", function(e){
+    e.preventDefault();
+    pindah();
+});
+
+// Emoji berterbangan
+const emojis = [
+"😂","🤔","🙏🏻","🙄","😠","🗿","🥰","🗿",
+"😱","🫵🏻","😎","🙄","😱","🤔","🤭",
+"🤏🏻","🫸🏻","😠","🥲","😋","💔","🥰",
+"🫸🏻","🤏🏻"
+];
+
+for(let i=0;i<40;i++){
+    let emoji = document.createElement("div");
+    emoji.className = "emoji";
+    emoji.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+
+    emoji.style.left = Math.random()*100 + "vw";
+    emoji.style.animationDuration = (5 + Math.random()*8) + "s";
+    emoji.style.animationDelay = Math.random()*5 + "s";
+
+    document.body.appendChild(emoji);
+}
+</script>
+
+</body>
+</html>
